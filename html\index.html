@@ -3,223 +3,913 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IndieAppWatch — Curated Developer Resources & Indie Hacker Tools</title>
-  <meta name="description" content="A curated collection of the best developer tools, indie game dev resources, SaaS stacks, and productivity tools. Updated regularly by developers, for developers.">
+  <title>DevStash — Tools That Developers Actually Use</title>
+  <meta name="description" content="A curated collection of developer tools, frameworks, and resources. From game engines to SaaS stacks — real tools for real projects.">
   <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://indieappwatch.com/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="IndieAppWatch — Curated Developer Resources">
-  <meta property="og:description" content="The best tools, resources, and guides for indie developers and bootstrapped founders.">
-  <meta property="og:url" content="https://indieappwatch.com">
-  <meta property="og:site_name" content="IndieAppWatch">
+  <meta property="og:title" content="DevStash — Tools That Developers Actually Use">
+  <meta property="og:description" content="A curated collection of developer tools, frameworks, and resources. From game engines to SaaS stacks — real tools for real projects.">
+  <meta property="og:url" content="https://indieappwatch.com/">
+  <meta property="og:site_name" content="DevStash">
+  <meta property="og:image" content="https://indieappwatch.com/og-image.png">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="IndieAppWatch — Curated Developer Resources">
-  <meta name="twitter:description" content="The best tools, resources, and guides for indie developers and bootstrapped founders.">
+  <meta name="twitter:title" content="DevStash — Tools That Developers Actually Use">
+  <meta name="twitter:description" content="A curated collection of developer tools, frameworks, and resources.">
+  <meta name="twitter:site" content="@indieappwatch">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "IndieAppWatch",
-    "url": "https://indieappwatch.com",
-    "description": "Curated developer resources and indie hacker tools",
+    "name": "DevStash",
+    "url": "https://indieappwatch.com/",
+    "description": "Tools that developers actually use. No fluff.",
     "publisher": {
       "@type": "Organization",
-      "name": "IndieAppWatch",
-      "url": "https://indieappwatch.com"
+      "name": "DevStash",
+      "url": "https://indieappwatch.com/"
     }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "DevStash Categories",
+    "url": "https://indieappwatch.com/",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Indie Game Development", "url": "https://indieappwatch.com/game-dev/"},
+      {"@type": "ListItem", "position": 2, "name": "SaaS Development Tools", "url": "https://indieappwatch.com/saas-tools/"},
+      {"@type": "ListItem", "position": 3, "name": "Developer Productivity", "url": "https://indieappwatch.com/productivity/"},
+      {"@type": "ListItem", "position": 4, "name": "API & Backend Tools", "url": "https://indieappwatch.com/api-backend/"},
+      {"@type": "ListItem", "position": 5, "name": "No-Code & Automation", "url": "https://indieappwatch.com/no-code/"},
+      {"@type": "ListItem", "position": 6, "name": "Design Tools for Devs", "url": "https://indieappwatch.com/design-dev/"},
+      {"@type": "ListItem", "position": 7, "name": "Indie Hacker Resources", "url": "https://indieappwatch.com/indie-hacker/"},
+      {"@type": "ListItem", "position": 8, "name": "AI-Powered Tools", "url": "https://indieappwatch.com/ai-tools/"}
+    ]
   }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #fafafa;
+      --bg: #f8f7f4;
       --surface: #ffffff;
-      --border: #e5e7eb;
-      --text: #111827;
-      --text-muted: #6b7280;
-      --accent: #2563eb;
-      --accent-hover: #1d4ed8;
-      --card-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+      --surface-hover: #fafaf8;
+      --border: #e8e5e0;
+      --border-light: #f0ede8;
+      --text: #1a1a18;
+      --text-secondary: #5c5c58;
+      --text-muted: #9a9a95;
+      --accent: #d44a0e;
+      --accent-hover: #b83e0b;
+      --accent-bg: #fff4ed;
+      --accent-border: #ffd5ba;
+      --ink: #0f0f0e;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow: 0 2px 8px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+      --radius: 10px;
+      --radius-sm: 6px;
+      --radius-lg: 14px;
+      --max-width: 1100px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
 
-    .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 1rem 2rem; }
-    .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-    .site-name { font-weight: 700; font-size: 1.2rem; color: var(--text); }
-    .nav-links { display: flex; gap: 1.5rem; }
-    .nav-links a { color: var(--text-muted); font-size: 0.9rem; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: white; padding: 5rem 2rem; text-align: center; }
-    .hero-inner { max-width: 700px; margin: 0 auto; }
-    .hero h1 { font-size: 3rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 1rem; }
-    .hero p { font-size: 1.2rem; opacity: 0.85; line-height: 1.7; margin-bottom: 2rem; }
-    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .hero-btn-primary { background: var(--accent); color: white; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: background 0.15s; }
-    .hero-btn-primary:hover { background: var(--accent-hover); text-decoration: none; }
-    .hero-btn-secondary { background: rgba(255,255,255,0.1); color: white; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 500; border: 1px solid rgba(255,255,255,0.2); transition: background 0.15s; }
-    .hero-btn-secondary:hover { background: rgba(255,255,255,0.2); text-decoration: none; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
 
-    .container { max-width: 1100px; margin: 3rem auto; padding: 0 1.5rem; }
-    .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
 
-    .category-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; margin-bottom: 3rem; }
-    .category-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; transition: all 0.2s; display: block; color: var(--text); }
-    .category-card:hover { box-shadow: var(--card-shadow); border-color: var(--accent); text-decoration: none; }
-    .category-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text); }
-    .category-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.75rem; }
-    .card-count { font-size: 0.8rem; color: var(--accent); font-weight: 500; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    .latest-section { margin-bottom: 3rem; }
-    .article-list { display: flex; flex-direction: column; gap: 1rem; }
-    .article-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; transition: box-shadow 0.15s; }
-    .article-item:hover { box-shadow: var(--card-shadow); }
-    .article-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.35rem; }
-    .article-item h3 a { color: var(--text); }
-    .article-item h3 a:hover { color: var(--accent); }
-    .article-meta { font-size: 0.8rem; color: var(--text-muted); }
+    img { max-width: 100%; display: block; }
 
-    .footer { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; text-align: center; }
-    .footer a { color: var(--text-muted); }
+    /* ─── Header ─── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 247, 244, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
 
-    @media (max-width: 640px) {
-      .hero h1 { font-size: 2rem; }
-      .hero { padding: 3rem 1.5rem; }
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      background: var(--ink);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      flex-shrink: 0;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .header-nav a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .header-nav a:hover {
+      background: var(--border-light);
+      color: var(--text);
+    }
+
+    .header-nav .nav-cta {
+      background: var(--ink);
+      color: white !important;
+      margin-left: 0.5rem;
+    }
+
+    .header-nav .nav-cta:hover {
+      background: #333 !important;
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 5rem 1.5rem 4rem;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-bg);
+      border: 1px solid var(--accent-border);
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+      max-width: 680px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--ink);
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius-sm);
+      transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      background: #2d2d2a;
+      text-decoration: none;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      transition: all 0.15s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-hover);
+      border-color: #ccc;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    /* ─── Featured / Spotlight ─── */
+    .section-wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      gap: 1rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+    }
+
+    .section-header a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .section-header a:hover {
+      text-decoration: underline;
+    }
+
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .spotlight-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: all 0.2s;
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spotlight-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .spotlight-card:hover {
+      border-color: #d0cdc8;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .spotlight-card:hover::before {
+      opacity: 1;
+    }
+
+    .spotlight-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .spotlight-card h3 {
+      font-size: 0.975rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .spotlight-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .spotlight-tag {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-bg);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    /* ─── Category Grid ─── */
+    .categories-section {
+      padding: 3rem 0;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .category-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .category-card:hover {
+      border-color: #ccc;
+      box-shadow: var(--shadow);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .category-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .category-emoji {
+      font-size: 1.6rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    .category-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+    }
+
+    .category-card p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .category-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 0.5rem;
+    }
+
+    .category-link svg {
+      transition: transform 0.15s;
+    }
+
+    .category-card:hover .category-link svg {
+      transform: translateX(3px);
+    }
+
+    /* ─── About Strip ─── */
+    .about-strip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      margin: 2rem 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-strip h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .about-strip p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 580px;
+    }
+
+    .about-strip-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      min-width: 180px;
+    }
+
+    .about-strip-links a {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.65rem 1.25rem;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      transition: all 0.15s;
+    }
+
+    .about-strip-links .link-primary {
+      background: var(--ink);
+      color: white;
+    }
+
+    .about-strip-links .link-primary:hover {
+      background: #2d2d2a;
+    }
+
+    .about-strip-links .link-secondary {
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .about-strip-links .link-secondary:hover {
+      border-color: #bbb;
+      background: var(--surface-hover);
+    }
+
+    /* ─── Divider ─── */
+    .section-divider {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-divider hr {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── Footer ─── */
+    .site-footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-brand .brand {
+      font-size: 1.05rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-col ul a {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      transition: color 0.15s;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--text);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .footer-bottom-links a {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      transition: color 0.15s;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--text);
+    }
+
+    /* ─── Mobile ─── */
+    @media (max-width: 768px) {
+      .hero { padding: 3rem 1.25rem 2.5rem; }
+      .about-strip { grid-template-columns: 1fr; }
+      .about-strip-links { flex-direction: row; min-width: unset; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-brand { grid-column: 1 / -1; }
+      .spotlight-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 540px) {
+      .header-nav a:not(.nav-cta) { display: none; }
+      .category-grid { grid-template-columns: 1fr; }
+      .spotlight-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-  <header class="header">
+
+  <!-- ─── Header ─── -->
+  <header class="site-header" role="banner">
     <div class="header-inner">
-      <a href="https://indieappwatch.com" class="site-name">IndieAppWatch</a>
-      <nav class="nav-links">
-        <a href="https://indieappwatch.com">Home</a>
-        <a href="https://indieappwatch.com/resources">Resources</a>
-        <a href="https://letstg.com">Tools</a>
+      <a href="https://indieappwatch.com/" class="brand" aria-label="DevStash Home">
+        <span class="brand-mark" aria-hidden="true">DS</span>
+        DevStash
+      </a>
+      <nav class="header-nav" aria-label="Main navigation">
+        <a href="https://indieappwatch.com/game-dev/">Game Dev</a>
+        <a href="https://indieappwatch.com/saas-tools/">SaaS</a>
+        <a href="https://indieappwatch.com/productivity/">Productivity</a>
+        <a href="https://indieappwatch.com/ai-tools/">AI Tools</a>
+        <a href="https://letstg.com" class="nav-cta">Browse All</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>Curated Resources for Developers & Indie Hackers</h1>
-      <p>The best tools, platforms, and guides — hand-picked and updated regularly. From game engines to SaaS stacks, from code editors to payment processors.</p>
-      <div class="hero-buttons">
-        <a href="https://indieappwatch.com/" class="hero-btn-primary">Browse All Resources</a>
-        <a href="https://letstg.com" class="hero-btn-secondary">Explore Letstg</a>
-      </div>
-    </div>
-  </section>
+  <main>
 
-  <main class="container">
-    <section class="latest-section">
-      <h2 class="section-title">Browse by Category</h2>
+    <!-- ─── Hero ─── -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <span class="hero-eyebrow" aria-label="Tagline">
+        <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="4"/></svg>
+        No fluff
+      </span>
+      <h1 id="hero-heading">
+        Tools developers<br><em>actually use.</em>
+      </h1>
+      <p class="hero-sub">
+        DevStash curates the frameworks, platforms, and utilities that ship real products — 
+        organized by what you're building. Skip the noise, find the right tool.
+      </p>
+      <div class="hero-actions">
+        <a href="https://indieappwatch.com/" class="btn-primary">
+          Explore categories
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://letstg.com" class="btn-secondary">
+          View on Letstg
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─── Spotlight / Featured ─── -->
+    <section class="section-wrap" aria-labelledby="spotlight-heading">
+      <div class="section-header">
+        <h2 id="spotlight-heading">What's getting attention</h2>
+        <a href="https://indieappwatch.com/" aria-label="See all trending tools">See all →</a>
+      </div>
+      <div class="spotlight-grid">
+
+        <a href="https://indieappwatch.com/game-dev/" class="spotlight-card" aria-label="Featured: Godot Engine">
+          <div class="spotlight-icon" aria-hidden="true">🎮</div>
+          <h3>Godot Engine</h3>
+          <p>Open-source game engine with a dedicated following among indie devs. GDScript feels natural if you've ever touched Python.</p>
+          <span class="spotlight-tag">Game Dev</span>
+        </a>
+
+        <a href="https://indieappwatch.com/saas-tools/" class="spotlight-card" aria-label="Featured: Supabase">
+          <div class="spotlight-icon" aria-hidden="true">🔥</div>
+          <h3>Supabase</h3>
+          <p>Postgres + auth + storage + real-time subscriptions. The Firebase alternative that doesn't make you feel trapped.</p>
+          <span class="spotlight-tag">SaaS Backend</span>
+        </a>
+
+        <a href="https://indieappwatch.com/productivity/" class="spotlight-card" aria-label="Featured: Warp Terminal">
+          <div class="spotlight-icon" aria-hidden="true">⚡</div>
+          <h3>Warp Terminal</h3>
+          <p>A terminal that actually knows what it's doing. Autocomplete, command blocks, and shared workflows built in.</p>
+          <span class="spotlight-tag">Productivity</span>
+        </a>
+
+        <a href="https://indieappwatch.com/ai-tools/" class="spotlight-card" aria-label="Featured: Cursor">
+          <div class="spotlight-icon" aria-hidden="true">🤖</div>
+          <h3>Cursor</h3>
+          <p>VS Code reimagined with AI at its core. Code completion that understands your codebase, not just the current file.</p>
+          <span class="spotlight-tag">AI-Powered</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ─── About Strip ─── -->
+    <section class="section-wrap" aria-label="About DevStash">
+      <div class="about-strip">
+        <div>
+          <h2>Built for builders</h2>
+          <p>
+            DevStash exists because finding the right tool for a project is harder than it should be. 
+            Every resource here has been evaluated on real merit — not affiliate deals or hype. 
+            Whether you're shipping your first indie game or spinning up a SaaS, you'll find something useful.
+          </p>
+        </div>
+        <div class="about-strip-links">
+          <a href="https://letstg.com" class="link-primary" target="_blank" rel="noopener">Browse on Letstg</a>
+          <a href="https://indieappwatch.com" class="link-secondary" target="_blank" rel="noopener">IndieAppWatch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Divider ─── -->
+    <div class="section-divider"><hr></div>
+
+    <!-- ─── Category Grid ─── -->
+    <section class="section-wrap categories-section" aria-labelledby="categories-heading">
+      <div class="section-header">
+        <h2 id="categories-heading">Browse by category</h2>
+        <a href="https://indieappwatch.com/" aria-label="All categories">All categories →</a>
+      </div>
       <div class="category-grid">
 
-        <a href="https://indieappwatch.com/indie-game-dev/indie-game-development-tools" class="category-card">
-          <h3>Indie Game Development</h3>
-          <p>Tools, engines, and resources for indie game developers</p>
-          <span class="card-count">10 topics</span>
+        <a href="https://indieappwatch.com/game-dev/" class="category-card" aria-label="Indie Game Development">
+          <div class="category-card-header">
+            <span class="category-emoji" aria-hidden="true">🎲</span>
+            <h3>Indie Game Development</h3>
+          </div>
+          <p>From Godot to itch.io, tools for building and shipping games</p>
+          <span class="category-link" aria-hidden="true">
+            Explore
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </a>
 
-        <a href="https://indieappwatch.com/saas-tools/saas-development-tools" class="category-card">
-          <h3>SaaS Development Tools</h3>
-          <p>Development, deployment, and analytics tools for SaaS products</p>
-          <span class="card-count">10 topics</span>
+        <a href="https://indieappwatch.com/saas-tools/" class="category-card" aria-label="SaaS Development Tools">
+          <div class="category-card-header">
+            <span class="category-emoji" aria-hidden="true">🚀</span>
+            <h3>SaaS Development Tools</h3>
+          </div>
+          <p>The modern stack for shipping products fast</p>
+          <span class="category-link" aria-hidden="true">
+            Explore
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </a>
 
-        <a href="https://indieappwatch.com/developer-productivity/vs-code-extensions-2024" class="category-card">
-          <h3>Developer Productivity</h3>
-          <p>Editors, extensions, CLI tools, and workflows that speed up development</p>
-          <span class="card-count">10 topics</span>
+        <a href="https://indieappwatch.com/productivity/" class="category-card" aria-label="Developer Productivity">
+          <div class="category-card-header">
+            <span class="category-emoji" aria-hidden="true">⚡</span>
+            <h3>Developer Productivity</h3>
+          </div>
+          <p>Editors, terminals, and workflows that actually help</p>
+          <span class="category-link" aria-hidden="true">
+            Explore
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </a>
 
-        <a href="https://indieappwatch.com/indie-hacker/indie-hacker-tools" class="category-card">
-          <h3>Indie Hacker Resources</h3>
-          <p>Resources for indie hackers and bootstrapped entrepreneurs</p>
-          <span class="card-count">10 topics</span>
+        <a href="https://indieappwatch.com/api-backend/" class="category-card" aria-label="API and Backend Tools">
+          <div class="category-card-header">
+            <span class="category-emoji" aria-hidden="true">🔌</span>
+            <h3>API &amp; Backend Tools</h3>
+          </div>
+          <p>Databases, auth, and everything that powers your app</p>
+          <span class="category-link" aria-hidden="true">
+            Explore
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </a>
 
-        <a href="https://indieappwatch.com/no-code/best-no-code-app-builder" class="category-card">
-          <h3>No-Code / Low-Code</h3>
-          <p>App builders, automation, and integration tools for non-coders</p>
-          <span class="card-count">10 topics</span>
+        <a href="https://indieappwatch.com/no-code/" class="category-card" aria-label="No-Code and Automation">
+          <div class="category-card-header">
+            <span class="category-emoji" aria-hidden="true">🔗</span>
+            <h3>No-Code &amp; Automation</h3>
+          </div>
+          <p>Build without code, automate the boring stuff</p>
+          <span class="category-link" aria-hidden="true">
+            Explore
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </a>
 
-        <a href="https://indieappwatch.com/api-development/best-api-client-2024" class="category-card">
-          <h3>API Development</h3>
-          <p>Tools for designing, testing, and documenting APIs</p>
-          <span class="card-count">10 topics</span>
+        <a href="https://indieappwatch.com/design-dev/" class="category-card" aria-label="Design Tools for Developers">
+          <div class="category-card-header">
+            <span class="category-emoji" aria-hidden="true">🎨</span>
+            <h3>Design Tools for Devs</h3>
+          </div>
+          <p>Prototyping, assets, and design systems</p>
+          <span class="category-link" aria-hidden="true">
+            Explore
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </a>
 
-        <a href="https://indieappwatch.com/database-tools/best-database-gui-tools" class="category-card">
-          <h3>Database Tools</h3>
-          <p>Databases, GUIs, ORMs, and data management tools</p>
-          <span class="card-count">10 topics</span>
+        <a href="https://indieappwatch.com/indie-hacker/" class="category-card" aria-label="Indie Hacker Resources">
+          <div class="category-card-header">
+            <span class="category-emoji" aria-hidden="true">💡</span>
+            <h3>Indie Hacker Resources</h3>
+          </div>
+          <p>From zero to revenue: tools that bootstrappers trust</p>
+          <span class="category-link" aria-hidden="true">
+            Explore
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </a>
 
-        <a href="https://indieappwatch.com/design-dev/design-tools-for-developers" class="category-card">
-          <h3>Design for Developers</h3>
-          <p>Design tools, UI kits, and resources for developers who design</p>
-          <span class="card-count">10 topics</span>
+        <a href="https://indieappwatch.com/ai-tools/" class="category-card" aria-label="AI-Powered Tools">
+          <div class="category-card-header">
+            <span class="category-emoji" aria-hidden="true">🤖</span>
+            <h3>AI-Powered Tools</h3>
+          </div>
+          <p>AI-assisted development and productivity</p>
+          <span class="category-link" aria-hidden="true">
+            Explore
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </a>
 
       </div>
     </section>
 
-    <section>
-      <h2 class="section-title">Latest Additions</h2>
-      <div class="article-list">
-        <div class="article-item">
-          <h3><a href="https://indieappwatch.com/indie-game-dev/indie-game-development-tools">Indie Game Development</a></h3>
-          <div class="article-meta">Tools, engines, and resources for indie game developers</div>
-        </div>
-        <div class="article-item">
-          <h3><a href="https://indieappwatch.com/saas-tools/saas-development-tools">SaaS Development Tools</a></h3>
-          <div class="article-meta">Development, deployment, and analytics tools for SaaS products</div>
-        </div>
-        <div class="article-item">
-          <h3><a href="https://indieappwatch.com/developer-productivity/vs-code-extensions-2024">Developer Productivity</a></h3>
-          <div class="article-meta">Editors, extensions, CLI tools, and workflows that speed up development</div>
-        </div>
-        <div class="article-item">
-          <h3><a href="https://indieappwatch.com/indie-hacker/indie-hacker-tools">Indie Hacker Resources</a></h3>
-          <div class="article-meta">Resources for indie hackers and bootstrapped entrepreneurs</div>
-        </div>
-        <div class="article-item">
-          <h3><a href="https://indieappwatch.com/no-code/best-no-code-app-builder">No-Code / Low-Code</a></h3>
-          <div class="article-meta">App builders, automation, and integration tools for non-coders</div>
-        </div>
-        <div class="article-item">
-          <h3><a href="https://indieappwatch.com/api-development/best-api-client-2024">API Development</a></h3>
-          <div class="article-meta">Tools for designing, testing, and documenting APIs</div>
-        </div>
-        <div class="article-item">
-          <h3><a href="https://indieappwatch.com/database-tools/best-database-gui-tools">Database Tools</a></h3>
-          <div class="article-meta">Databases, GUIs, ORMs, and data management tools</div>
-        </div>
-        <div class="article-item">
-          <h3><a href="https://indieappwatch.com/design-dev/design-tools-for-developers">Design for Developers</a></h3>
-          <div class="article-meta">Design tools, UI kits, and resources for developers who design</div>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer class="footer">
-    <p>
-      <a href="https://indieappwatch.com">IndieAppWatch</a> —
-      Curated tools and resources for developers and indie hackers.
-      &nbsp;|&nbsp;
-      <a href="https://letstg.com">Letstg</a>
-    </p>
-    <p style="margin-top:0.5rem;">Last updated: April 28, 2026</p>
+  <!-- ─── Footer ─── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="https://indieappwatch.com/" class="brand" aria-label="DevStash Home">
+            <span class="brand-mark" aria-hidden="true">DS</span>
+            DevStash
+          </a>
+          <p>Tools that developers actually use. No fluff. Curated for builders shipping real projects.</p>
+        </div>
+
+        <nav class="footer-col" aria-label="Primary resources">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://indieappwatch.com/game-dev/">Indie Game Dev</a></li>
+            <li><a href="https://indieappwatch.com/saas-tools/">SaaS Tools</a></li>
+            <li><a href="https://indieappwatch.com/productivity/">Productivity</a></li>
+            <li><a href="https://indieappwatch.com/ai-tools/">AI Tools</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="More resources">
+          <h4>More</h4>
+          <ul>
+            <li><a href="https://indieappwatch.com/api-backend/">API &amp; Backend</a></li>
+            <li><a href="https://indieappwatch.com/no-code/">No-Code</a></li>
+            <li><a href="https://indieappwatch.com/design-dev/">Design Tools</a></li>
+            <li><a href="https://indieappwatch.com/indie-hacker/">Indie Hacker</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 DevStash. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="https://indieappwatch.com/" target="_blank" rel="noopener">IndieAppWatch</a>
+          <a href="https://letstg.com" target="_blank" rel="noopener">Letstg</a>
+        </div>
+      </div>
+    </div>
   </footer>
+
 </body>
 </html>
