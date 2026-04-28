@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>n8n — IndieAppWatch</title>
+  <meta name="description" content="Workflow automation tool with code-first flexibility — n8n bridges the gap between no-code automation and developer control, offering a visual workflow builder while allowing ...">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="n8n — IndieAppWatch">
+  <meta property="og:description" content="Workflow automation tool with code-first flexibility">
+  <meta property="og:url" content="https://indieappwatch.com/tools/n8n/">
+  <meta property="og:site_name" content="IndieAppWatch">
+  <meta property="og:image" content="https://n8n.io/og-image.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="n8n">
+  <meta name="twitter:description" content="Workflow automation tool with code-first flexibility">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "n8n",
+    "description": "Workflow automation tool with code-first flexibility",
+    "url": "https://n8n.io",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IndieAppWatch",
+      "url": "https://indieappwatch.com"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+
+:root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --text-muted: #6b7280;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+    --header-bg: #0f172a;
+}
+
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.header { background: var(--header-bg); padding: 1rem 2rem; }
+.header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.site-logo { font-weight: 700; font-size: 1.2rem; color: #ffffff; text-decoration: none; }
+.site-logo:hover { text-decoration: none; opacity: 0.9; }
+.nav-links { display: flex; gap: 1.5rem; }
+.nav-links a { color: rgba(255,255,255,0.7); font-size: 0.9rem; transition: color 0.15s; }
+.nav-links a:hover { color: #ffffff; text-decoration: none; }
+
+.hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: white; padding: 4rem 2rem; text-align: center; }
+.hero-inner { max-width: 700px; margin: 0 auto; }
+.hero h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 1rem; }
+.hero p { font-size: 1.15rem; opacity: 0.85; line-height: 1.7; }
+
+.breadcrumb { max-width: 1100px; margin: 1.5rem auto; padding: 0 1.5rem; font-size: 0.85rem; color: var(--text-muted); }
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb span { margin: 0 0.5rem; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+.page-header { margin-bottom: 2.5rem; }
+.page-header h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+.page-header p { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; line-height: 1.7; }
+
+.section-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; letter-spacing: -0.02em; }
+
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 3rem; }
+.tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; transition: all 0.2s; display: block; color: var(--text); }
+.tool-card:hover { box-shadow: var(--card-shadow); border-color: var(--accent); text-decoration: none; transform: translateY(-2px); }
+.tool-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+.tool-card .tagline { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+.tool-card .desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+.related-section { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; margin-top: 2rem; }
+.related-section h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
+.related-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.related-links a { background: var(--bg); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.9rem; color: var(--text); transition: all 0.15s; }
+.related-links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+.tool-detail { max-width: 800px; }
+.tool-detail .meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0; }
+.tool-detail .meta-item { display: flex; flex-direction: column; }
+.tool-detail .meta-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+.tool-detail .meta-value { font-weight: 500; }
+.tool-detail .official-link { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--accent); color: white; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 500; transition: background 0.15s; }
+.tool-detail .official-link:hover { background: var(--accent-hover); text-decoration: none; }
+
+.content-section { margin: 2rem 0; }
+.content-section h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; }
+.content-section p { margin-bottom: 1rem; color: var(--text); }
+.content-section ul { margin: 1rem 0; padding-left: 1.5rem; }
+.content-section li { margin-bottom: 0.5rem; }
+.content-section li::marker { color: var(--accent); }
+
+.use-cases { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
+.use-case-tag { background: var(--bg); border: 1px solid var(--border); padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.85rem; }
+
+.back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+.back-link:hover { color: var(--accent); }
+
+.footer { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; text-align: center; }
+.footer a { color: var(--text-muted); }
+.footer a:hover { color: var(--accent); }
+.footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+@media (max-width: 640px) {
+    .hero { padding: 2.5rem 1.5rem; }
+    .hero h1 { font-size: 1.75rem; }
+    .tool-grid { grid-template-columns: 1fr; }
+    .header { padding: 1rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.8rem; }
+}
+
+
+.tool-detail .page-title { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 0.5rem; }
+.tool-detail .tagline { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="https://indieappwatch.com" class="site-logo">IndieAppWatch</a>
+      <nav class="nav-links">
+        <a href="https://indieappwatch.com">Home</a>
+        <a href="https://letstg.com">Tools</a>
+        <a href="https://indieappwatch.com">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="https://indieappwatch.com">Home</a>
+    <span>/</span>
+    <a href="/nocode/index.html">No-Code & Automation</a>
+    <span>/</span>
+    <span>n8n</span>
+  </nav>
+
+
+  <main class="container">
+    <div class="tool-detail">
+      <a href="/nocode/index.html" class="back-link">← Back to No-Code & Automation</a>
+
+      <div class="page-header">
+        <h1 class="page-title">n8n</h1>
+        <p class="tagline">Workflow automation tool with code-first flexibility</p>
+        
+        <div class="meta">
+          <div class="meta-item">
+            <span class="meta-label">Category</span>
+            <span class="meta-value"><a href="/nocode/index.html">No-Code & Automation</a></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Pricing</span>
+            <span class="meta-value">Free self-hosted version. Cloud tiers from €20/month for managed hosting with unlimited executions.</span>
+          </div>
+        </div>
+
+        <a href="https://n8n.io" class="official-link" target="_blank" rel="noopener">
+          Visit Official Site →
+        </a>
+      </div>
+
+      <section class="content-section">
+        <h2>About n8n</h2>
+      <p>n8n bridges the gap between no-code automation and developer control, offering a visual workflow builder while allowing custom JavaScript or Python nodes when needed. This hybrid approach makes it powerful enough for complex business logic while remaining accessible to non-programmers.</p>
+      <p>The open-source nature means you can self-host n8n, keeping your data on your own infrastructure and avoiding per-task pricing. For businesses with sensitive data or specific compliance requirements, this self-hosting option is invaluable. The cloud version provides managed hosting with the same features.</p>
+      <p>Where n8n excels over simpler automation tools is in its ability to handle conditional logic, loops, and error handling gracefully. Workflows can wait for external events, make decisions based on complex conditions, and recover from errors automatically. For sophisticated business processes, n8n provides the control that no-code tools typically lack.</p>
+
+      </section>
+
+      <section class="content-section">
+        <h2>Key Features</h2>
+        <ul>
+        <li>Visual workflow editor with drag-and-drop nodes</li>
+        <li>Custom code nodes in JavaScript or Python</li>
+        <li>Self-hosted option with full data ownership</li>
+        <li>200+ pre-built integrations</li>
+        <li>Error workflows for graceful failure handling</li>
+        <li>Workflow versioning and templates</li>
+        <li>Binary data handling for files and images</li>
+        <li>Sub-nodes for advanced functionality</li>
+        <li>Webhook triggers for external events</li>
+
+        </ul>
+      </section>
+
+      <section class="content-section">
+        <h2>Common Use Cases</h2>
+        <div class="use-cases">
+        <span class="use-case-tag">Complex business process automation</span>
+        <span class="use-case-tag">Self-hosted automation for data-sensitive workflows</span>
+        <span class="use-case-tag">Custom integrations between niche tools</span>
+        <span class="use-case-tag">ETL pipelines and data transformation</span>
+        <span class="use-case-tag">Scheduled reporting and notifications</span>
+
+        </div>
+      </section>
+
+      <section class="related-section">
+        <h2>Related Tools</h2>
+        <div class="related-links">
+          <a href="/tools/zapier.html">Zapier</a>
+          <a href="/tools/notion.html">Notion</a>
+          <a href="/tools/supabase.html">Supabase</a>
+          <a href="/tools/railway.html">Railway</a>
+
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>
+        <a href="https://indieappwatch.com">IndieAppWatch</a> —
+        Curated tools and resources for developers and indie hackers.
+        &nbsp;|&nbsp;
+        <a href="https://letstg.com">Letstg</a>
+      </p>
+      <p style="margin-top: 0.5rem;">Last updated: April 28, 2026</p>
+    </div>
+  </footer>
+
+</body>
+</html>
