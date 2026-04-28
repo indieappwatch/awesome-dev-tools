@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neovim — IndieAppWatch</title>
+  <meta name="description" content="Hyperextensible Vim-based text editor — Neovim represents the community-driven evolution of Vim, addressing long-standing architectural limitations while preser...">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Neovim — IndieAppWatch">
+  <meta property="og:description" content="Hyperextensible Vim-based text editor">
+  <meta property="og:url" content="https://indieappwatch.com/tools/neovim/">
+  <meta property="og:site_name" content="IndieAppWatch">
+  <meta property="og:image" content="https://neovim.io/og-image.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Neovim">
+  <meta name="twitter:description" content="Hyperextensible Vim-based text editor">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Neovim",
+    "description": "Hyperextensible Vim-based text editor",
+    "url": "https://neovim.io",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IndieAppWatch",
+      "url": "https://indieappwatch.com"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+
+:root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --text-muted: #6b7280;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+    --header-bg: #0f172a;
+}
+
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.header { background: var(--header-bg); padding: 1rem 2rem; }
+.header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.site-logo { font-weight: 700; font-size: 1.2rem; color: #ffffff; text-decoration: none; }
+.site-logo:hover { text-decoration: none; opacity: 0.9; }
+.nav-links { display: flex; gap: 1.5rem; }
+.nav-links a { color: rgba(255,255,255,0.7); font-size: 0.9rem; transition: color 0.15s; }
+.nav-links a:hover { color: #ffffff; text-decoration: none; }
+
+.hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: white; padding: 4rem 2rem; text-align: center; }
+.hero-inner { max-width: 700px; margin: 0 auto; }
+.hero h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 1rem; }
+.hero p { font-size: 1.15rem; opacity: 0.85; line-height: 1.7; }
+
+.breadcrumb { max-width: 1100px; margin: 1.5rem auto; padding: 0 1.5rem; font-size: 0.85rem; color: var(--text-muted); }
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb span { margin: 0 0.5rem; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+.page-header { margin-bottom: 2.5rem; }
+.page-header h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+.page-header p { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; line-height: 1.7; }
+
+.section-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; letter-spacing: -0.02em; }
+
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 3rem; }
+.tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; transition: all 0.2s; display: block; color: var(--text); }
+.tool-card:hover { box-shadow: var(--card-shadow); border-color: var(--accent); text-decoration: none; transform: translateY(-2px); }
+.tool-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+.tool-card .tagline { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+.tool-card .desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+.related-section { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; margin-top: 2rem; }
+.related-section h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
+.related-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.related-links a { background: var(--bg); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.9rem; color: var(--text); transition: all 0.15s; }
+.related-links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+.tool-detail { max-width: 800px; }
+.tool-detail .meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0; }
+.tool-detail .meta-item { display: flex; flex-direction: column; }
+.tool-detail .meta-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+.tool-detail .meta-value { font-weight: 500; }
+.tool-detail .official-link { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--accent); color: white; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 500; transition: background 0.15s; }
+.tool-detail .official-link:hover { background: var(--accent-hover); text-decoration: none; }
+
+.content-section { margin: 2rem 0; }
+.content-section h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; }
+.content-section p { margin-bottom: 1rem; color: var(--text); }
+.content-section ul { margin: 1rem 0; padding-left: 1.5rem; }
+.content-section li { margin-bottom: 0.5rem; }
+.content-section li::marker { color: var(--accent); }
+
+.use-cases { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
+.use-case-tag { background: var(--bg); border: 1px solid var(--border); padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.85rem; }
+
+.back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+.back-link:hover { color: var(--accent); }
+
+.footer { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; text-align: center; }
+.footer a { color: var(--text-muted); }
+.footer a:hover { color: var(--accent); }
+.footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+@media (max-width: 640px) {
+    .hero { padding: 2.5rem 1.5rem; }
+    .hero h1 { font-size: 1.75rem; }
+    .tool-grid { grid-template-columns: 1fr; }
+    .header { padding: 1rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.8rem; }
+}
+
+
+.tool-detail .page-title { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 0.5rem; }
+.tool-detail .tagline { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="https://indieappwatch.com" class="site-logo">IndieAppWatch</a>
+      <nav class="nav-links">
+        <a href="https://indieappwatch.com">Home</a>
+        <a href="https://letstg.com">Tools</a>
+        <a href="https://indieappwatch.com">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="https://indieappwatch.com">Home</a>
+    <span>/</span>
+    <a href="/productivity/index.html">Developer Productivity</a>
+    <span>/</span>
+    <span>Neovim</span>
+  </nav>
+
+
+  <main class="container">
+    <div class="tool-detail">
+      <a href="/productivity/index.html" class="back-link">← Back to Developer Productivity</a>
+
+      <div class="page-header">
+        <h1 class="page-title">Neovim</h1>
+        <p class="tagline">Hyperextensible Vim-based text editor</p>
+        
+        <div class="meta">
+          <div class="meta-item">
+            <span class="meta-label">Category</span>
+            <span class="meta-value"><a href="/productivity/index.html">Developer Productivity</a></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Pricing</span>
+            <span class="meta-value">Completely free and open source (Apache 2.0). Available in most package managers.</span>
+          </div>
+        </div>
+
+        <a href="https://neovim.io" class="official-link" target="_blank" rel="noopener">
+          Visit Official Site →
+        </a>
+      </div>
+
+      <section class="content-section">
+        <h2>About Neovim</h2>
+      <p>Neovim represents the community-driven evolution of Vim, addressing long-standing architectural limitations while preserving the editing philosophy that has kept Vim users productive for decades. The Lua configuration system makes customization more accessible, and the async job handling eliminates the stalls that plagued Vim when running external commands.</p>
+      <p>Built-in LSP (Language Server Protocol) support brings IDE-level code intelligence without requiring third-party plugins. The Treesitter parser integration provides better syntax highlighting and text objects than regex-based approaches. These aren't just incremental improvements — they're fundamental capabilities that make Neovim competitive with modern IDEs.</p>
+      <p>The true power of Neovim reveals itself over time — the modal editing paradigm, text objects, macros, and registers form a vocabulary that composes into increasingly sophisticated editing commands. Once you've internalized these concepts, editing text anywhere — including in a remote SSH session — feels like an extension of your thoughts rather than a separate task.</p>
+
+      </section>
+
+      <section class="content-section">
+        <h2>Key Features</h2>
+        <ul>
+        <li>Modal editing with normal, insert, visual, and command modes</li>
+        <li>Built-in LSP client for language-aware completions</li>
+        <li>Treesitter integration for accurate syntax parsing</li>
+        <li>Lua-based configuration and plugin ecosystem</li>
+        <li>Floating windows and built-in terminal</li>
+        <li>Asynchronous job control without blocking the UI</li>
+        <li>Remote plugin hosting and embedded UI support</li>
+        <li>Compatibility with most Vim plugins and workflows</li>
+        <li>Shared data formats for persistent state</li>
+
+        </ul>
+      </section>
+
+      <section class="content-section">
+        <h2>Common Use Cases</h2>
+        <div class="use-cases">
+        <span class="use-case-tag">Systems programming in C, Rust, and Go</span>
+        <span class="use-case-tag">Web development with fast iteration cycles</span>
+        <span class="use-case-tag">DevOps and infrastructure scripting</span>
+        <span class="use-case-tag">Working on remote servers via SSH</span>
+        <span class="use-case-tag">Users who value keyboard-centric workflows</span>
+
+        </div>
+      </section>
+
+      <section class="related-section">
+        <h2>Related Tools</h2>
+        <div class="related-links">
+          <a href="/tools/vscode.html">Visual Studio Code</a>
+          <a href="/tools/cursor.html">Cursor</a>
+          <a href="/tools/cursor-ai.html">Cursor AI</a>
+          <a href="/tools/replit.html">Replit</a>
+
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>
+        <a href="https://indieappwatch.com">IndieAppWatch</a> —
+        Curated tools and resources for developers and indie hackers.
+        &nbsp;|&nbsp;
+        <a href="https://letstg.com">Letstg</a>
+      </p>
+      <p style="margin-top: 0.5rem;">Last updated: April 28, 2026</p>
+    </div>
+  </footer>
+
+</body>
+</html>
