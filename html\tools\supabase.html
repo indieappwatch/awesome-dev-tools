@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supabase — IndieAppWatch</title>
+  <meta name="description" content="The open source Firebase alternative with a Postgres foundation — Supabase takes the developer experience that made Firebase popular and reimagines it on top of PostgreSQL, giving you a ...">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Supabase — IndieAppWatch">
+  <meta property="og:description" content="The open source Firebase alternative with a Postgres foundation">
+  <meta property="og:url" content="https://indieappwatch.com/tools/supabase/">
+  <meta property="og:site_name" content="IndieAppWatch">
+  <meta property="og:image" content="https://supabase.com/og-image.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Supabase">
+  <meta name="twitter:description" content="The open source Firebase alternative with a Postgres foundation">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Supabase",
+    "description": "The open source Firebase alternative with a Postgres foundation",
+    "url": "https://supabase.com",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IndieAppWatch",
+      "url": "https://indieappwatch.com"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+
+:root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --text-muted: #6b7280;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+    --header-bg: #0f172a;
+}
+
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.header { background: var(--header-bg); padding: 1rem 2rem; }
+.header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.site-logo { font-weight: 700; font-size: 1.2rem; color: #ffffff; text-decoration: none; }
+.site-logo:hover { text-decoration: none; opacity: 0.9; }
+.nav-links { display: flex; gap: 1.5rem; }
+.nav-links a { color: rgba(255,255,255,0.7); font-size: 0.9rem; transition: color 0.15s; }
+.nav-links a:hover { color: #ffffff; text-decoration: none; }
+
+.hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: white; padding: 4rem 2rem; text-align: center; }
+.hero-inner { max-width: 700px; margin: 0 auto; }
+.hero h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 1rem; }
+.hero p { font-size: 1.15rem; opacity: 0.85; line-height: 1.7; }
+
+.breadcrumb { max-width: 1100px; margin: 1.5rem auto; padding: 0 1.5rem; font-size: 0.85rem; color: var(--text-muted); }
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb span { margin: 0 0.5rem; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+.page-header { margin-bottom: 2.5rem; }
+.page-header h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+.page-header p { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; line-height: 1.7; }
+
+.section-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; letter-spacing: -0.02em; }
+
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 3rem; }
+.tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; transition: all 0.2s; display: block; color: var(--text); }
+.tool-card:hover { box-shadow: var(--card-shadow); border-color: var(--accent); text-decoration: none; transform: translateY(-2px); }
+.tool-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+.tool-card .tagline { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+.tool-card .desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+.related-section { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; margin-top: 2rem; }
+.related-section h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
+.related-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.related-links a { background: var(--bg); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.9rem; color: var(--text); transition: all 0.15s; }
+.related-links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+.tool-detail { max-width: 800px; }
+.tool-detail .meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0; }
+.tool-detail .meta-item { display: flex; flex-direction: column; }
+.tool-detail .meta-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+.tool-detail .meta-value { font-weight: 500; }
+.tool-detail .official-link { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--accent); color: white; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 500; transition: background 0.15s; }
+.tool-detail .official-link:hover { background: var(--accent-hover); text-decoration: none; }
+
+.content-section { margin: 2rem 0; }
+.content-section h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; }
+.content-section p { margin-bottom: 1rem; color: var(--text); }
+.content-section ul { margin: 1rem 0; padding-left: 1.5rem; }
+.content-section li { margin-bottom: 0.5rem; }
+.content-section li::marker { color: var(--accent); }
+
+.use-cases { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
+.use-case-tag { background: var(--bg); border: 1px solid var(--border); padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.85rem; }
+
+.back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+.back-link:hover { color: var(--accent); }
+
+.footer { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; text-align: center; }
+.footer a { color: var(--text-muted); }
+.footer a:hover { color: var(--accent); }
+.footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+@media (max-width: 640px) {
+    .hero { padding: 2.5rem 1.5rem; }
+    .hero h1 { font-size: 1.75rem; }
+    .tool-grid { grid-template-columns: 1fr; }
+    .header { padding: 1rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.8rem; }
+}
+
+
+.tool-detail .page-title { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 0.5rem; }
+.tool-detail .tagline { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="https://indieappwatch.com" class="site-logo">IndieAppWatch</a>
+      <nav class="nav-links">
+        <a href="https://indieappwatch.com">Home</a>
+        <a href="https://letstg.com">Tools</a>
+        <a href="https://indieappwatch.com">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="https://indieappwatch.com">Home</a>
+    <span>/</span>
+    <a href="/saas-tools/index.html">SaaS Development Tools</a>
+    <span>/</span>
+    <span>Supabase</span>
+  </nav>
+
+
+  <main class="container">
+    <div class="tool-detail">
+      <a href="/saas-tools/index.html" class="back-link">← Back to SaaS Development Tools</a>
+
+      <div class="page-header">
+        <h1 class="page-title">Supabase</h1>
+        <p class="tagline">The open source Firebase alternative with a Postgres foundation</p>
+        
+        <div class="meta">
+          <div class="meta-item">
+            <span class="meta-label">Category</span>
+            <span class="meta-value"><a href="/saas-tools/index.html">SaaS Development Tools</a></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Pricing</span>
+            <span class="meta-value">Free tier includes 500MB database, 1GB storage, 50K monthly active users. Pro at $25/month for production applications.</span>
+          </div>
+        </div>
+
+        <a href="https://supabase.com" class="official-link" target="_blank" rel="noopener">
+          Visit Official Site →
+        </a>
+      </div>
+
+      <section class="content-section">
+        <h2>About Supabase</h2>
+      <p>Supabase takes the developer experience that made Firebase popular and reimagines it on top of PostgreSQL, giving you a proper relational database with all the modern conveniences. The combination of a powerful query engine with real-time subscriptions and instant APIs makes building data-driven applications remarkably straightforward.</p>
+      <p>The Auth system handles everything from email/password to OAuth providers without requiring server-side code, and Row Level Security policies in Postgres give you fine-grained control over who can access what. Authentication state syncs automatically to the client libraries, eliminating the boilerplate that typically comes with user management.</p>
+      <p>Storage is another area where Supabase shines — file uploads go directly from the browser to your storage bucket, with automatic image transformations and CDN distribution. The dashboard makes database management visual, but everything is also accessible via the CLI and API, so you can automate your workflow however you prefer.</p>
+
+      </section>
+
+      <section class="content-section">
+        <h2>Key Features</h2>
+        <ul>
+        <li>PostgreSQL database with automatic REST and GraphQL APIs</li>
+        <li>Real-time subscriptions over WebSocket connections</li>
+        <li>Row Level Security for fine-grained access control</li>
+        <li>Authentication with 20+ OAuth providers</li>
+        <li>Edge Functions running on Deno at the edge</li>
+        <li>Storage API with automatic image transformations</li>
+        <li>Database migrations and version control via CLI</li>
+        <li>Multi-region deployments with global edge infrastructure</li>
+        <li>Client libraries for JavaScript, Flutter, Swift, Kotlin, and more</li>
+
+        </ul>
+      </section>
+
+      <section class="content-section">
+        <h2>Common Use Cases</h2>
+        <div class="use-cases">
+        <span class="use-case-tag">SaaS applications requiring a database backend</span>
+        <span class="use-case-tag">Real-time collaboration features</span>
+        <span class="use-case-tag">Mobile applications needing offline sync</span>
+        <span class="use-case-tag">Content management systems</span>
+        <span class="use-case-tag">E-commerce platforms with complex data models</span>
+
+        </div>
+      </section>
+
+      <section class="related-section">
+        <h2>Related Tools</h2>
+        <div class="related-links">
+          <a href="/tools/nextjs.html">Next.js</a>
+          <a href="/tools/stripe.html">Stripe</a>
+          <a href="/tools/railway.html">Railway</a>
+          <a href="/tools/vercel.html">Vercel</a>
+
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>
+        <a href="https://indieappwatch.com">IndieAppWatch</a> —
+        Curated tools and resources for developers and indie hackers.
+        &nbsp;|&nbsp;
+        <a href="https://letstg.com">Letstg</a>
+      </p>
+      <p style="margin-top: 0.5rem;">Last updated: April 28, 2026</p>
+    </div>
+  </footer>
+
+</body>
+</html>
