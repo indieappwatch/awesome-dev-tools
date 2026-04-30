@@ -23,13 +23,20 @@
 | [Indie Hacker](https://indieappwatch.com/indie-hacker/) | LemonSqueezy, Gumroad, Carrd |
 | [Design Tools](https://indieappwatch.com/design-tools/) | Figma, Excalidraw, Tailwind CSS |
 
-## Follow Us
+## Connect With Us
 
-- **Twitter/X**: [x.com/indieappwatch](https://x.com/indieappwatch)
-- **Facebook**: [facebook.com/profile.php?id=61589254851682](https://www.facebook.com/profile.php?id=61589254851682)
-- **YouTube**: [youtube.com/@indieappwatch](https://www.youtube.com/@indieappwatch)
-- **TikTok**: [tiktok.com/@indieappwatch](https://www.tiktok.com/@indieappwatch)
-- **Website**: [indieappwatch.com](https://indieappwatch.com)
+[![Twitter/X](https://img.shields.io/badge/Follow-@indieappwatch-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/indieappwatch)
+[![YouTube](https://img.shields.io/badge/Subscribe-@indieappwatch-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@indieappwatch)
+[![Facebook](https://img.shields.io/badge/Like-DevStash-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/profile.php?id=61589254851682)
+[![TikTok](https://img.shields.io/badge/Follow-@indieappwatch-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@indieappwatch)
+
+| Platform | Link |
+|----------|------|
+| :house: Website | [indieappwatch.com](https://indieappwatch.com) |
+| :bird: Twitter / X | [x.com/indieappwatch](https://x.com/indieappwatch) |
+| :video_camera: YouTube | [youtube.com/@indieappwatch](https://www.youtube.com/@indieappwatch) |
+| :thumbs_up: Facebook | [facebook.com/profile.php?id=61589254851682](https://www.facebook.com/profile.php?id=61589254851682) |
+| :musical_note: TikTok | [tiktok.com/@indieappwatch](https://www.tiktok.com/@indieappwatch) |
 
 ## Quick Links
 
