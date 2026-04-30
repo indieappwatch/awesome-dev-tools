@@ -1,8 +1,44 @@
-# IndieAppWatch Resource Hub
+# IndieAppWatch / DevStash
 
-A content generation and GitHub publishing system for creating rich, SEO-friendly HTML and Markdown resources that naturally promote letstg.com and indieappwatch.com.
+> Curated developer tools for indie devs, game makers, and tech builders.
 
-## Quick Start
+[![Live Site](https://img.shields.io/badge/Live-indieappwatch.com-6366F1?style=flat-square)](https://indieappwatch.com)
+[![Twitter](https://img.shields.io/badge/Twitter-@indieappwatch-1DA1F2?style=flat-square)](https://x.com/indieappwatch)
+[![Facebook](https://img.shields.io/badge/Facebook-DevStash-1877F2?style=flat-square)](https://www.facebook.com/profile.php?id=61589254851682)
+[![YouTube](https://img.shields.io/badge/YouTube-@indieappwatch-FF0000?style=flat-square)](https://www.youtube.com/@indieappwatch)
+[![TikTok](https://img.shields.io/badge/TikTok-@indieappwatch-000000?style=flat-square)](https://www.tiktok.com/@indieappwatch)
+
+**DevStash** is a curated collection of developer tools, frameworks, and resources — organized by what you're building. No ads, no affiliate links. Just real tools used by real developers.
+
+## Featured Categories
+
+| Category | Tools |
+|----------|-------|
+| [Game Development](https://indieappwatch.com/game-dev/) | Godot, Unity, GameMaker Studio, Aseprite, Itch.io |
+| [SaaS Backend](https://indieappwatch.com/saas-tools/) | Supabase, Railway, Vercel, Stripe, n8n, Zapier |
+| [AI Coding](https://indieappwatch.com/ai-tools/) | Cursor, Replit, Next.js, Neovim |
+| [Productivity](https://indieappwatch.com/productivity/) | VS Code, Notion, Bubble, Figma |
+| [API & Backend](https://indieappwatch.com/api-tools/) | FastAPI, SwaggerHub, Postman |
+| [No-Code](https://indieappwatch.com/nocode/) | Carrd, Gumroad, Webflow |
+| [Indie Hacker](https://indieappwatch.com/indie-hacker/) | LemonSqueezy, Gumroad, Carrd |
+| [Design Tools](https://indieappwatch.com/design-tools/) | Figma, Excalidraw, Tailwind CSS |
+
+## Follow Us
+
+- **Twitter/X**: [x.com/indieappwatch](https://x.com/indieappwatch)
+- **Facebook**: [facebook.com/profile.php?id=61589254851682](https://www.facebook.com/profile.php?id=61589254851682)
+- **YouTube**: [youtube.com/@indieappwatch](https://www.youtube.com/@indieappwatch)
+- **TikTok**: [tiktok.com/@indieappwatch](https://www.tiktok.com/@indieappwatch)
+- **Website**: [indieappwatch.com](https://indieappwatch.com)
+
+## Quick Links
+
+- [Site Map](https://indieappwatch.com/sitemap.xml)
+- [Robots.txt](https://indieappwatch.com/robots.txt)
+
+## Tech Stack (Content Generator)
+
+This repository also contains a **content generation and GitHub publishing system** for creating SEO-optimized HTML and Markdown resources.
 
 ```bash
 # Install dependencies
@@ -10,13 +46,12 @@ pip install -r requirements.txt
 
 # Configure GitHub settings
 python run.py config --set github.token "ghp_..."
-python run.py config --set github.repo_owner "your-username"
-python run.py config --set github.repo_name "your-repo"
+python run.py config --set github.repo_owner "indieappwatch"
+python run.py config --set github.repo_name "awesome-dev-tools"
 
 # Generate content
 python run.py generate --type article --keyword "indie-game-dev-tools"
 python run.py generate --type resource-list --category "saas-tools"
-python run.py generate --type all
 
 # Upload to GitHub
 python run.py upload --all
@@ -25,25 +60,12 @@ python run.py upload --all
 python run.py publish --type article --keyword "indie-game-dev-tools" --upload
 ```
 
-## Configuration
+## Best Practices
 
-Edit `config.yaml` or use the CLI:
-
-```bash
-python run.py config --set github.token "ghp_xxx"
-python run.py config --set github.repo_owner "username"
-python run.py config --set github.repo_name "repo-name"
-python run.py config --set sites.primary "https://letstg.com"
-python run.py config --set sites.secondary "https://indieappwatch.com"
-python run.py config --show
-```
-
-## Content Types
-
-- **article**: Deep-dive resource pages with structured data
-- **resource-list**: Curated tool/resource lists
-- **markdown**: Lightweight MD versions
-- **index**: Main hub page
+- Content is written for humans first — genuine value over optimization tricks
+- Keywords appear naturally in headings and body text
+- All content includes structured data (JSON-LD) for rich search results
+- Regular content refreshes with update timestamps
 
 ## Project Structure
 
@@ -54,16 +76,11 @@ indieappwatch/
 │   ├── github_uploader.py
 │   ├── keywords.py
 │   └── utils.py
-├── templates/            # HTML/MD templates
-├── output/               # Generated content
-├── config.yaml           # Configuration
+├── output/              # Generated content (deployed to Cloudflare Pages)
+├── config.yaml          # Configuration
 └── run.py               # CLI entry point
 ```
 
-## Best Practices
+---
 
-- Content is written for humans first — genuine value over optimization tricks
-- Keywords appear naturally in headings and body text
-- Links to letstg.com and indieappwatch.com are contextual references, not promotional
-- All content includes structured data for rich search results
-- Regular content refreshes with update timestamps
+Built with care for the indie developer community.
